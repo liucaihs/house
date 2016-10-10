@@ -9,8 +9,6 @@ require 'init.php';
 
 function checkReapeat( $pid , $square , $htype , $price , $allprice , $name , $addr  )
 {
-    //"insert into hdetail(pid,square,housetype,price,allprice,name,addr) ";
-   // $sql .= " value( ". $pid .",". $square .", '". $htype ."' ,". $price .",". $allprice .", '". $name ."' ,'". $addr ."' )";
     global $db;
     $sqlrep = "select * from `hdetail` where pid = {$pid} and square = {$square} and housetype = '{$htype}'"
         . " and price = {$price} and allprice = {$allprice} and name = '{$name}' and addr = '{$addr}' limit 1";
@@ -38,7 +36,6 @@ fwrite(STDOUT, "Enter the pid: ");
 
 // get input
 $pid = trim(fgets(STDIN)) +0;
-//$pid = $_GET['pid'] + 0;
 $sql = "select * from `area` where pid = ". $pid;
 
 $allarea = $db->query($sql)->fetchAll( PDO::FETCH_ASSOC );
